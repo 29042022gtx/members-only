@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs');
-const pool = require('../database/pool');
+const pool = require('../database/connects/pool');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 

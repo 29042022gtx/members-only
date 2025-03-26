@@ -16,7 +16,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     store: new pgSession({
-      pool: require('./database/pool'),
+      pool: require('./database/connects/pool'),
       tableName: 'sessions',
     }),
     cookie: {
