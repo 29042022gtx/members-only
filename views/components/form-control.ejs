@@ -1,0 +1,11 @@
+<input
+  type="<%= type %>"
+  name="<%= name %>"
+  id="<%= name %>"
+  value="<%= locals.old?.[name] %>"
+/>
+<% if (locals.validateErr) { %>
+  <div style="color: red"><%= locals.validateErr?.[name] %></div>
+<% } else { %>
+  <br>
+<% } %>
