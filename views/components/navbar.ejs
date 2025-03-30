@@ -1,0 +1,11 @@
+<nav>
+  <a href="/">Home</a>
+  <a href="/sign-up">Sign up</a>
+  <a href="/login">Login</a>
+  <% if (locals.user) { %>
+    <button form="logout">Logout</button>
+    <form action="/logout" method="post" id="logout" style="display: none"></form>
+  <% } %>
+  <a href="/join-club">Join club</a>
+  <%= locals.user?.email %>
+</nav>

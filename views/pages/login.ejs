@@ -11,26 +11,20 @@
 
   <body>
     <%- include('../components/navbar') %>
-    <h1>Sign up</h1>
+    <h1>Login</h1>
     <form
-      action="/sign-up"
+      action="/login"
       method="post"
     >
-      <label for="firstName">First name</label>
-      <br />
-      <%- include('../components/form-control', {type: 'text' , name: 'firstName'}) %>
-      <label for="lastName">Last name</label>
-      <br />
-      <%- include('../components/form-control', {type: 'text' , name: 'lastName'}) %>
       <label for="email">Email</label>
       <br />
       <%- include('../components/form-control', {type: 'email' , name: 'email'}) %>
       <label for="password">Password</label>
       <br />
       <%- include('../components/form-control', {type: 'password' , name: 'password'}) %>
-      <label for="confirmPassword">Confirm password</label>
-      <br />
-      <%- include('../components/form-control', {type: 'password' , name: 'confirmPassword'}) %>
+      <div style="color: red;">
+        <%= locals.message %>
+      </div>
       <button>Submit</button>
     </form>
   </body>

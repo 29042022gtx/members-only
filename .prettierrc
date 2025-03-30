@@ -1,4 +1,6 @@
 {
+  "singleQuote": true,
+  "singleAttributePerLine": true,
   "overrides": [
     {
       "files": "*.ejs",

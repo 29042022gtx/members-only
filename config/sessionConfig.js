@@ -7,7 +7,7 @@ const sessionConfig = session({
   saveUninitialized: false,
   store: new pgSession({
     pool: require("../database/connects/pool"),
-    tableName: "sessions",
+    tableName: "session",
   }),
   cookie: {
     maxAge: 1000 * 60 * 60 * 24,
