@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <%- include('../components/navbar') %>
+    <h1>Login</h1>
+    <form
+      action="/new-message"
+      method="post"
+    >
+      <label for="title">Title</label>
+      <br />
+      <%- include('../components/form-control', {type: 'text' , name: 'title'}) %>
+      <label for="content">Content</label>
+      <br />
+      <%- include('../components/form-control', {type: 'textarea' , name: 'content'}) %>
+      <div style="color: red;">
+        <%= locals.message %>
+      </div>
+      <button>Submit</button>
+    </form>
+  </body>
+</html>

@@ -7,10 +7,12 @@
 </head>
 <body>
   <%- include('../components/navbar') %>
+  <h1>Join club</h1>
   <form action="/join-club" method="post">
     <label for="passcode">Passcode</label>
     <br />
     <%- include('../components/form-control', {type: 'text' , name: 'passcode'}) %>
+    <button>Submit</button>
   </form>
 </body>
 </html>

@@ -1,9 +1,16 @@
-<input
-  type="<%= type %>"
-  name="<%= name %>"
+<% if (type == 'textarea') { %>
+ <textarea 
+  name="<%= name %>" 
   id="<%= name %>"
-  value="<%= locals.old?.[name] %>"
-/>
+  ><%= locals.old?.[name] %></textarea>
+<% } else { %>
+  <input
+    type="<%= type %>"
+    name="<%= name %>"
+    id="<%= name %>"
+    value="<%= locals.old?.[name] %>"
+  />
+<% } %>
 <% if (locals.validateErr) { %>
   <div style="color: red"><%= locals.validateErr?.[name] %></div>
 <% } else { %>

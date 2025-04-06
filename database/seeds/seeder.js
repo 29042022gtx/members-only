@@ -6,7 +6,7 @@ const userSeed = require('./userSeed');
 const messageSeed = require('./messageSeed');
 
 const SQL = `
-CREATE TABLE "session" (
+CREATE TABLE IF NOT EXISTS "session" (
   "sid" varchar NOT NULL COLLATE "default",
   "sess" json NOT NULL,
   "expire" timestamp(6) NOT NULL
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS messages (
   message_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
   title VARCHAR ( 50 ),
   content VARCHAR ( 255 ),
-  created_at TIMESTAMP,
+  created_at TIMESTAMP DEFAULT NOW(),
   author_id INTEGER REFERENCES users(user_id)
 );
 `;

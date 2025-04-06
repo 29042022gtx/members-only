@@ -8,5 +8,21 @@
 <body>
   <%- include('../components/navbar') %>
   <h1>Home</h1>
+  <ul>
+    <% messages.forEach(item => { %>
+      <li>
+        <% if (locals.user) { %>
+          <h4>
+            <%= item.first_name %> <%= item.last_name %>&nbsp;|&nbsp;
+            <%= new Date(item.created_at).toLocaleString() %>
+          </h4>
+        <% } %>
+        <h3><%= item.title %></h3>
+        <p>
+          <%= item.content %>
+        </p>
+      </li>
+    <% }) %>
+  </ul>
 </body>
 </html>

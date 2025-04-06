@@ -3,9 +3,14 @@
   <a href="/sign-up">Sign up</a>
   <a href="/login">Login</a>
   <% if (locals.user) { %>
+    <a href="/new-message">New message</a>
+    <%= locals.user.email %>
+    <% if (locals.user.membership_status == 'active') { %>
+      Joined
+    <% } else { %>
+        <a href="/join-club">Join club</a>
+    <% } %>
     <button form="logout">Logout</button>
     <form action="/logout" method="post" id="logout" style="display: none"></form>
   <% } %>
-  <a href="/join-club">Join club</a>
-  <%= locals.user?.email %>
 </nav>
