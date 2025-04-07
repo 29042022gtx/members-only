@@ -12,7 +12,7 @@
   <ul>
     <% messages.forEach(item => { %>
       <li>
-        <% if (locals.user.membership_status == 'active' || locals.user.role == 'admin') { %>
+        <% if (locals.user?.membership_status == 'active' || locals.user?.role == 'admin') { %>
           <h4>
             <%= item.first_name %> <%= item.last_name %>&nbsp;|&nbsp;
             <%= new Date(item.created_at).toLocaleString() %>
