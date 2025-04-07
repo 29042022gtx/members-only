@@ -1,4 +1,6 @@
-process.stdout.write('\x1b[2J\x1b[3J\x1b[H');
+if (process.env.NODE_ENV === 'development') {
+  process.stdout.write('\x1b[2J\x1b[3J\x1b[H');
+}
 require('dotenv').config();
 const path = require('node:path');
 const express = require('express');
