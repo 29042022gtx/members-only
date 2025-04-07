@@ -3,6 +3,7 @@ const authenController = require('../controllers/authenController');
 const clubController = require('../controllers/clubController');
 const auth = require('../middlewares/auth');
 const indexController = require('../controllers/indexController');
+const roles = require('../middlewares/role');
 
 const indexRouter = Router();
 indexRouter.get('/', indexController.home);
@@ -15,6 +16,6 @@ indexRouter.get('/join-club', auth, clubController.getJoinClub);
 indexRouter.post('/join-club', auth, clubController.postJoinClub);
 indexRouter.get('/new-message', auth, clubController.getNewMessage);
 indexRouter.post('/new-message', auth, clubController.postNewMessage);
-
+indexRouter.post('/delete-message', roles(['admin']), clubController.postDeleteMessage);
 
 module.exports = indexRouter;

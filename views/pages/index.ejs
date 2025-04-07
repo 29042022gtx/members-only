@@ -8,13 +8,20 @@
 <body>
   <%- include('../components/navbar') %>
   <h1>Home</h1>
+  <%= locals.message %>
   <ul>
     <% messages.forEach(item => { %>
       <li>
-        <% if (locals.user) { %>
+        <% if (locals.user.membership_status == 'active' || locals.user.role == 'admin') { %>
           <h4>
             <%= item.first_name %> <%= item.last_name %>&nbsp;|&nbsp;
             <%= new Date(item.created_at).toLocaleString() %>
+            <% if (locals.user.role == 'admin') { %>
+              <form id="deleteForm" action="/delete-message" method="post" style="display: none;">
+                <input type="hidden" name="message_id" value="<%= item.message_id %>">
+              </form>
+              <button form="deleteForm">Delete</button>
+            <% } %>
           </h4>
         <% } %>
         <h3><%= item.title %></h3>

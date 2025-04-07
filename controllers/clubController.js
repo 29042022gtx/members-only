@@ -58,6 +58,27 @@ const clubController = {
       res.redirect('/');
     },
   ],
+
+  postDeleteMessage: [
+    body('message_id')
+      .trim()
+      .isInt()
+      .withMessage('Message id must be an interger'),
+    async (req, res, next) => {
+      const validateErr = toValidateErr(validationResult(req).mapped());
+      if (validateErr) {
+        return res.render('pages/error', {
+          message: 'Message id must be an interger',
+        });
+      }
+      next();
+    },
+    async (req, res) => {
+      console.log(req.body);
+      await club.deleteMessage(req.body);
+      res.redirect('/');
+    },
+  ],
 };
 
 module.exports = clubController;

@@ -6,12 +6,14 @@ const club = {
     if (is_member) {
       selectFields += ', first_name, last_name, created_at';
     }
-    return (await pool.query(`
+    return (
+      await pool.query(`
       SELECT ${selectFields}
       FROM messages m JOIN users u ON m.author_id = u.user_id
       ORDER BY created_at DESC
       LIMIT 1000;
-      `)).rows;
+      `)
+    ).rows;
   },
 
   updateUserMembershipStatus: async (user_id, status) => {
@@ -23,12 +25,18 @@ const club = {
     );
   },
 
-  addMessage: async ({title, content, author_id}) => {
+  addMessage: async ({ title, content, author_id }) => {
     await pool.query(
       `INSERT INTO messages (title, content, author_id)
        VALUES ($1, $2, $3);`,
       [title, content, author_id]
     );
+  },
+
+  deleteMessage: async ({ message_id }) => {
+    await pool.query(`DELETE FROM messages WHERE message_id = $1`, [
+      message_id,
+    ]);
   },
 };
 
