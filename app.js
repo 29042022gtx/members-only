@@ -21,6 +21,7 @@ app.use('/', (req, res, next) => {
 });
 app.use('/', indexRouter);
 
-app.listen(3000, () =>
-  console.log('Serving: \x1b[35mhttp://localhost:3000\x1b[0m')
-);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Serving at: http://localhost:${PORT}`);
+});
