@@ -2,7 +2,7 @@ const pool = require('../connects/pool');
 
 const club = {
   getMessages: async (is_member) => {
-    let selectFields = 'title, content';
+    let selectFields = 'message_id, title, content';
     if (is_member) {
       selectFields += ', first_name, last_name, created_at';
     }

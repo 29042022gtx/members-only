@@ -74,7 +74,6 @@ const clubController = {
       next();
     },
     async (req, res) => {
-      console.log(req.body);
       await club.deleteMessage(req.body);
       res.redirect('/');
     },
