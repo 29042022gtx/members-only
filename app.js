@@ -23,6 +23,11 @@ app.use('/', (req, res, next) => {
 });
 app.use('/', indexRouter);
 
+// eslint-disable-next-line no-unused-vars
+app.use((err, req, res, next) => {
+  res.status(err.statusCode || 500).send(err.message);
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Serving at: \x1b[35mhttp://localhost:${PORT}\x1b[0m`);
